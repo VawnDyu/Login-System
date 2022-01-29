@@ -1,0 +1,384 @@
+@import 'css/sass/Variables';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+::-webkit-scrollbar { /* width */
+    width: 6px;
+}
+
+::-webkit-scrollbar-track { /* Track */
+    background: #f1f1f1; 
+}
+
+::-webkit-scrollbar-thumb { /* Handle */
+    background: $violet;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover { /* Handle on hover */
+    background: $darkviolet; 
+}
+
+.error-message { /* Error Message on login*/
+    padding: 6px;
+    border-radius: 4px;
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    text-align: center;
+    font-size: 14px;
+}
+
+.logout {
+    font-size: 14px;
+    color: blue;
+    padding-left: 4px;
+}
+
+.material-icons-outlined {
+    transform: translateY(6px);
+    padding-right: 9px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: $black;
+}
+
+input[type=text], input[type=password] {
+    border-radius: 6px;
+    width: 100%;
+    // border: none;
+    padding: 8px 20px 8px;
+    border: 1px solid #ccc;
+    outline-color: $black;
+    margin: 6px 0 10px;
+}
+
+textarea {
+    border-radius: 6px;
+    width: 100%;
+    border: 1px solid $black;
+    outline-color: $black;
+}
+
+
+input[type=submit] {
+    width: 100%;
+    padding: 12px;
+    background: $btn-primary;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+input[type=date] {
+    color: $black;
+}
+
+label {
+    font-weight: $medium;
+    color: $black;
+}
+
+.main-container {
+    background: $back;  
+    height: 140vh;
+    width: 100vw;
+    display: grid;
+    grid-template-rows: repeat(18, 1fr);
+    grid-template-columns: repeat(18, 1fr);
+
+    & > form {
+        background: $front;
+        grid-column: 1 / 19; //Left and Right
+        grid-row: 1 / 19; //Up and Down
+
+        & > .img-container {
+            text-align: center;
+            padding: 32px 0 0;
+            
+            & > img {
+                width: 160px;
+                height: 160px;
+            }
+        }
+
+        & > .error-message {
+            width: 87%;
+            position: relative;
+            top: 3%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        & > .container {
+            padding: 16px 20px 16px 20px; //Top Right Down Left
+        }
+    }
+
+    & > .nav-info {
+        background: $front;
+        grid-row: 1 / 2;
+        grid-column: 1 / 17;
+        display: flex;
+        align-items: center;
+        border-bottom: 2px solid $violet;
+
+        & > img {
+            height: 45px;
+            width: 45px;
+            padding: 6px;
+            margin-left: 8px;
+        }
+
+        & > header {
+            color: $violet;
+            font-weight: $semibold;
+            font-size: 18px;
+        }
+    }
+
+    & > .nav-home {
+        background: $front;
+        grid-row: 1 / 2;
+        grid-column: 17 / 18;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 2px solid $violet;
+        
+        & > a {
+            color: $black;
+            font-size: $regular;
+
+            & > .material-icons-outlined {
+                padding: 0;
+                font-size: 28px;
+                transform: translateY(4px);
+            }
+        }
+    }
+
+    & > .nav-profile {
+        background: $front;
+        grid-row: 1 / 2;
+        grid-column: 18 / 19;
+        display: flex;
+        justify-content: flex-end;
+        border-bottom: 2px solid $violet;
+
+        & > img {
+            height: 45px;
+            width: 45px;
+            padding: 6px;
+            margin-right: 8px;
+            border-radius: 50%;
+        }
+    }
+
+    & > .main-header {
+        grid-row: 3 / 4;
+        grid-column: 1 / 19;
+        font-size: 22px;
+        padding: 10px 16px;
+        color: $black;
+        font-weight: $semibold;
+    }
+
+    & > .leave-history-header {
+        grid-row: 4 / 5;
+        grid-column: 1 / 19;
+        padding: 0 12px;
+        color: $black;
+        font-size: 18px;
+        font-weight: $medium;
+
+        & > .material-icons-outlined {
+            padding-right: 2px;
+            color: $violet;
+        }
+    }
+
+    & > .history-table {
+        grid-row: 6 / 7;
+        grid-column: 1 / 19;
+        overflow: auto;
+        height: 190px;
+        width: 95%;
+
+        & > table {
+        width: 95%;
+        margin-left: 5%;
+        border-collapse: collapse;
+        }
+
+        & > tr, th { //Table Header
+            background: $violet;
+            color: $front;
+            font-size: 14px;
+            font-weight: $semibold;
+            padding: 8px;
+            position: sticky;
+            top: 0;
+        }
+
+        & > tr, td { //Table Content
+            text-align: center;
+            padding: 8px;
+            border-bottom: 1px solid $black;
+            font-size: 13px;
+            font-weight: $medium;
+        }
+    }
+
+    & > .set-leave-header {
+        grid-row: 8 / 9;
+        grid-column: 1 / 19;
+        padding: 0 12px;
+        color: $black;
+        font-size: 18px;
+        font-weight: $medium;
+
+        & > .material-icons-outlined {
+            padding-right: 2px;
+            color: $violet;
+        }
+    }
+
+    & > .set-leave {
+        grid-row: 9 / 10;
+        grid-column: 1 / 19;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+
+        & > .leave-from {
+            display: block;
+            width: auto;
+            padding: 8px 18px;
+
+            & > label {
+                font-size: 12px;
+                font-weight: $semibold;
+                margin-right: 5px;
+            }
+
+            & > input[type=date] {
+                font-size: 10px;
+                font-weight: $semibold;
+                border-radius: 6px;
+                outline-color: none;
+                border: 1px solid $black;
+                text-align: center;
+            }
+        }
+
+        & > .leave-to {
+            display: block;
+            width: auto;
+            padding: 8px 14px 8px 0;
+            justify-content: center;
+
+            & > label {
+                font-size: 12px;
+                font-weight: $semibold;
+                margin-right: 5px;
+            }
+
+            & > input[type=date] {
+                font-size: 10px;
+                font-weight: $semibold;
+                border-radius: 6px;
+                outline-color: none;
+                border: 1px solid $black;
+                text-align: center;
+            }
+        }
+    }
+
+    & > .reason-header {
+        grid-row: 11 / 12;
+        grid-column: 1 / 19;
+        padding: 0px 12px 12px;
+        color: $black;
+        font-size: 18px;
+        font-weight: $medium;
+
+        & > .material-icons-outlined {
+            padding-right: 2px;
+            color: $violet;
+        }
+    }
+
+    & > .reason-form {
+        grid-row: 12 / 13;
+        grid-column: 1 / 19;
+        margin-left: 5%;
+
+        & > form {
+
+            & > textarea {
+                width: 95%;
+                height: 120px;
+                padding: 10px;
+                resize: none;
+            }
+
+            & > input[type=submit] {
+                width: 95%;
+            }
+        }
+    }
+
+    & > .content {
+        grid-row: 4 / 11;
+        grid-column: 1 / 19;
+        font-size: 16px;
+
+        & > ul {
+            background: $front;
+
+            & > a {
+                color: $black;
+                font-weight: $regular;
+
+                & > .first {
+                    border-top: 1px solid $black;
+                }
+
+                & > li {
+                    list-style: none;
+                    padding: 16px;
+                    border-bottom: 1px solid $black;
+                }
+            }
+        }
+    }
+}
+
+
+@media only screen and (min-width: 769px) {
+    
+    body {
+        background: $back;
+    }
+
+    .main-container {
+        border: 1px solid #ccc;
+        position: absolute;
+        // width: 425px;
+        // margin-left: -213px;
+        width: 320px;
+        margin-left: -160px;
+        left: 50%;
+    }
+}
