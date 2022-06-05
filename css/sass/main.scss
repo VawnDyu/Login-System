@@ -85,6 +85,10 @@ input[type=submit], input[type=button] {
     cursor: pointer;
 }
 
+input[type=submit]:hover, input[type=button]:hover {
+    opacity: 90%;
+}
+
 input[type=date] {
     color: $black;
 }
@@ -95,16 +99,42 @@ label {
 }
 
 .main-container {
-    background: $back;  
+    background: $front;
     height: 100vh;
     width: 100vw;
     display: grid;
     grid-template-rows: repeat(18, 1fr);
     grid-template-columns: repeat(18, 1fr);
 
+    & > .welcome-logo {
+        background: $front;
+        grid-column: 1 / 12;
+        grid-row: 1 / 19;
+        border-right: 1px solid #ccc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & > .header {
+            text-align: center;
+            color: $black;
+
+            & > img {
+                border-radius: 50%;
+                margin-bottom: 20px;
+            }
+
+            & > header {
+                font-weight: $semibold;
+                font-size: 30px;
+            }
+        }
+    }
+
+
     & > form {
         background: $front;
-        grid-column: 1 / 19; //Left and Right
+        grid-column: 12 / 19; //Left and Right
         grid-row: 1 / 19; //Up and Down
 
         & > .img-container {
@@ -117,16 +147,17 @@ label {
             }
         }
 
-        & > .error-message {
-            width: 87%;
-            position: relative;
-            top: 3%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
 
         & > .container {
-            padding: 16px 20px 16px 20px; //Top Right Down Left
+            padding: 16px 80px 16px 80px; //Top Right Down Left
+
+            & > .error-message {
+                width: 100%;
+                position: relative;
+                top: 3%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
 
             & > div {
                 display: flex;
@@ -376,20 +407,42 @@ label {
     }
 }
 
-
-@media only screen and (min-width: 769px) {
-    
-    body {
-        background: $back;
-    }
+@media only screen and (max-width: 768px) {
 
     .main-container {
-        border: 1px solid #ccc;
-        position: absolute;
-        // width: 425px;
-        // margin-left: -213px;
-        width: 320px;
-        margin-left: -160px;
-        left: 50%;
+        
+        & > .welcome-logo {
+            display: none;
+        }
+
+        & > form {
+            grid-column: 1 / 19;
+            grid-row: 1 / 19;
+        }
     }
 }
+
+@media only screen and (max-width: 375px) {
+
+    .main-container > form > .container {
+        padding: 16px 40px 16px 40px; //Top Right Down Left
+    }
+}
+
+
+// @media only screen and (max-width: 768px) { //Tablet Size
+    
+//     body {
+//         background: $back;
+//     }
+
+//     .main-container {
+//         border: 1px solid #ccc;
+//         // position: absolute;
+//         // width: 425px;
+//         // margin-left: -213px;
+//         // width: 100vw;
+//         // margin-left: -160px;
+//         // left: 50%;
+//     }
+// }

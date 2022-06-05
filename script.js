@@ -18,3 +18,7 @@ function myFunction() {
 //       }
 //     }
 }
+
+function loginQR() {
+    window.location.href = "login_qr.php";
+}

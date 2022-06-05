@@ -88,6 +88,10 @@ input[type=submit], input[type=button] {
   cursor: pointer;
 }
 
+input[type=submit]:hover, input[type=button]:hover {
+  opacity: 90%;
+}
+
 input[type=date] {
   color: #464646;
 }
@@ -98,7 +102,7 @@ label {
 }
 
 .main-container {
-  background: #F4F6FA;
+  background: #FFF;
   height: 100vh;
   width: 100vw;
   display: -ms-grid;
@@ -109,11 +113,46 @@ label {
       grid-template-columns: repeat(18, 1fr);
 }
 
-.main-container > form {
+.main-container > .welcome-logo {
   background: #FFF;
   -ms-grid-column: 1;
-  -ms-grid-column-span: 18;
-  grid-column: 1 / 19;
+  -ms-grid-column-span: 11;
+  grid-column: 1 / 12;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 18;
+  grid-row: 1 / 19;
+  border-right: 1px solid #ccc;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main-container > .welcome-logo > .header {
+  text-align: center;
+  color: #464646;
+}
+
+.main-container > .welcome-logo > .header > img {
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.main-container > .welcome-logo > .header > header {
+  font-weight: 600 !important;
+  font-size: 30px;
+}
+
+.main-container > form {
+  background: #FFF;
+  -ms-grid-column: 12;
+  -ms-grid-column-span: 7;
+  grid-column: 12 / 19;
   -ms-grid-row: 1;
   -ms-grid-row-span: 18;
   grid-row: 1 / 19;
@@ -129,17 +168,17 @@ label {
   height: 160px;
 }
 
-.main-container > form > .error-message {
-  width: 87%;
+.main-container > form > .container {
+  padding: 16px 80px 16px 80px;
+}
+
+.main-container > form > .container > .error-message {
+  width: 100%;
   position: relative;
   top: 3%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-}
-
-.main-container > form > .container {
-  padding: 16px 20px 16px 20px;
 }
 
 .main-container > form > .container > div {
@@ -458,16 +497,23 @@ label {
   border-bottom: 1px solid #464646;
 }
 
-@media only screen and (min-width: 769px) {
-  body {
-    background: #F4F6FA;
+@media only screen and (max-width: 768px) {
+  .main-container > .welcome-logo {
+    display: none;
   }
-  .main-container {
-    border: 1px solid #ccc;
-    position: absolute;
-    width: 320px;
-    margin-left: -160px;
-    left: 50%;
+  .main-container > form {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 18;
+    grid-column: 1 / 19;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 18;
+    grid-row: 1 / 19;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .main-container > form > .container {
+    padding: 16px 40px 16px 40px;
   }
 }
 /*# sourceMappingURL=main.css.map */
